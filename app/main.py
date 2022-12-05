@@ -28,13 +28,28 @@ station = ok_data()
 
 app.layout = html.Div(
     children = [
-        html.H1(children = 'Brent Crude'),
+        html.Center(html.H1(children = 'Brent Crude', className = 'center')),
+        html.H5('''
+        This Application should help people make their own
+        decision on when to tank up their cars. The best
+        use case is when on Friday, after the gas stations
+        have fixed their price for the weekend, it would be
+        a good strategy to watch the price of Brent over the
+        weekend, if Brent is going down, it could indicate
+        that the price on Monday would be lower. This could
+        possibly just save you some money, but that is up to
+        the individual user to decide. This is just a plot
+        that I personally use, make decision using this at
+        your own risk.
+        '''),
 
-        dcc.RadioItems(
+        html.Br(),
+
+        html.Center(dcc.RadioItems(
             id = 'plot_option', 
             options = ['Line Plot', 'Candle Plot'],
             value = 'Line Plot'
-        ),
+        )),
 
         daq.BooleanSwitch(
             id = 'currency_adj',
@@ -42,6 +57,8 @@ app.layout = html.Div(
             label = 'Adjust to DKK(per Liter)',
             color = '#4C4E52'
             ),
+
+        html.Br(),
 
         dcc.Graph(
             id = 'brent',

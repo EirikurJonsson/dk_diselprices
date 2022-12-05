@@ -25,7 +25,6 @@ class PLOTS:
         fig = make_subplots(specs = [[{'secondary_y': True}]])
 
         if not adjust:
-
             fig.add_trace(
                     go.Candlestick(
                         x = brent['Datetime'],
